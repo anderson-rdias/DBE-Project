@@ -6,9 +6,9 @@
 	xmlns:p="http://primefaces.org/ui">
 
 <h:head></h:head>
-<body>
-	<h:form>
-		<div class="card">
+<body style="background-color: #eee">
+	<div class="card">
+		<h:form>
 			<p:tabMenu activeIndex="#{param.i}">
 				<p:menuitem value="Home" icon="pi pi-fw pi-home">
 					<f:param name="i" value="0" />
@@ -20,40 +20,49 @@
 					<f:param name="i" value="2" />
 				</p:menuitem>
 			</p:tabMenu>
-		</div>
+		</h:form>
+	</div>
+
+	<h:form>
+		<p:card style="width: 25em; margin: 1em auto">
+			<f:facet name="title"> New Setup </f:facet>
+			<div class="ui-fluid">
+				<div class="p-field">
+					<label for="name" class="p-col-fixed" style="width: 100px">Name</label>
+					<div class="p-col">
+						<p:inputText id="name" value="#{setupBean.setup.name}" type="text" />
+					</div>
+				</div>
+			</div>
+
+			<div class="ui-fluid">
+				<div class="p-field">
+					<label for="description" class="p-col-fixed" style="width: 100px">Description</label>
+					<div class="p-col">
+						<p:inputTextarea id="description"
+							value="#{setupBean.setup.description}" type="text" />
+					</div>
+				</div>
+			</div>
+
+			<div class="ui-fluid">
+				<div class="p-field">
+					<label for="price" class="p-col-fixed" style="width: 100px">Price</label>
+					<div class="p-col">
+						<p:inputNumber id="price" value="#{setupBean.setup.price}"
+							symbol="R$ " decimalSeparator="," thousandSeparator="." />
+					</div>
+				</div>
+			</div>
+
+			<f:facet name="footer">
+				<p:commandButton icon="pi pi-save" action="#{setupBean.save()}"
+					value="Save" />
+				<p:commandButton icon="pi pi-times" value="Cancel"
+					styleClass="ui-button-secondary" style="margin-left: .5em" />
+			</f:facet>
+		</p:card>
 	</h:form>
 
-	<p:card style="width: 25em" >
-    <f:facet name="title">
-        New Setup
-    </f:facet>
-		
-	<div class="p-field p-grid">
-    <label for="firstname" class="p-col-fixed" style="width:100px">Name</label>
-    <div class="p-col">
-        <p:inputText id="firstname" type="text" />
-    </div>
-	</div>
-	
-	<div class="p-field p-grid">
-    <label for="description" class="p-col-fixed" style="width:100px">Description</label>
-    <div class="p-col">
-        <p:inputTextarea id="description" type="text" />
-    </div>
-	</div>
-	
-	<div class="p-field p-grid">
-    <label for="price" class="p-col-fixed" style="width:100px">Price</label>
-    <div class="p-col">
-        <p:inputText id="price" type="text" />
-    </div>
-	</div>
-
-    <f:facet name="footer">
-        <p:commandButton icon="pi pi-save" value="Save"/>
-        <p:commandButton icon="pi pi-times" value="Cancel" styleClass="ui-button-secondary" style="margin-left: .5em"/>
-    </f:facet>
-</p:card>
-	
 </body>
 </html>

@@ -2,8 +2,17 @@ package br.com.fiap.model;
 
 import java.math.BigDecimal;
 
-public class Setup {
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
+@Entity
+public class Setup {
+	
+	@Id 
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
 	private String name = "Meu Setup";
 	private String description = "Descrição do Setup";
 	private BigDecimal price = new BigDecimal(2000);
@@ -36,7 +45,9 @@ public class Setup {
 	public String toString() {
 		return "Setup [name=" + name + ", description=" + description + ", price=" + price + "]";
 	}
-	
-	
+
+	public Long getId() {
+		return id;
+	}
 
 }

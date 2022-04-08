@@ -15,7 +15,6 @@ public class SetupDao {
 		EntityManagerFactory factory = Persistence.createEntityManagerFactory("progamer-persistence-unit");
 		EntityManager manager = factory.createEntityManager();
 		
-		manager.persist(setup);
 		manager.getTransaction().begin();
 		manager.persist(setup);
 		manager.getTransaction().commit();

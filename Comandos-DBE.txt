@@ -1,0 +1,36 @@
+Repositório com projeto completo no git:
+https://github.com/joaocarloslima/dbe-H
+
+Instalar o JBoss Forge no Eclipse:
+
+1. No Eclipse acesse o menu Help > Install New Software...
+2. No campo Work with cole o endereço do JBoss Tool e tecle enter:
+3. Digite Forge no filtro e selecione o Forge Tools do Java EE
+4. Clique em Next, aceite os termos e clique em Finish. O Eclipse será reinicializado.
+5. Para exibir o Forge Console Ctrl + 3 → forge → enter
+
+Comandos para criar e configurar os projetos com o Forge
+
+#criação do projeto
+> project-new 
+
+#adicionar o jsf
+> faces-setup --faces-version 2.2
+
+#adicionar o cdi
+> cdi-setup --cdi-version 1.1
+
+#adicionar o jpa
+> jpa-setup --db-type MYSQL5_INNODB
+
+#adicionar dependência mysql
+> project-add-dependence mysql:mysql-connector-java
+
+========================================================================================================
+
+Instalação do WildFly no Eclipse
+
+1. Na view Server clique no link para criar um servidor
+2. Filtre por WildFly e selecione a opção JBoss AS, Wildfly & EAP Server Tools
+3. Next → Aceite os termos → Finish
+4. Para criar um servidor de aplicação, repita o passo 1, selecionando a opção WildFly 22.

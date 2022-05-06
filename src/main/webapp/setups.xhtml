@@ -5,31 +5,41 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:p="http://primefaces.org/ui">
 
-	<ui:composition template="/_template.xhtml">
-		<ui:define name="content">
-			<h:form>
-				<div class="card" style="margin: 1em">
-					<p:dataTable var="setup" value="#{setupBean.setups}">
-						<p:column headerText="Id">
-							<h:outputText value="#{setup.id}" />
-						</p:column>
-	
-						<p:column headerText="Name">
-							<h:outputText value="#{setup.name}" />
-						</p:column>
-	
-						<p:column headerText="Description">
-							<h:outputText value="#{setup.description}" />
-						</p:column>
-	
-						<p:column headerText="Price">
-							<h:outputText value="#{setup.price}" />
-						</p:column>
-					</p:dataTable>
-				</div>
-			</h:form>
-		</ui:define>
-	</ui:composition>
+<ui:composition template="/_template.xhtml">
+	<ui:define name="content">
+		<p:messages id="messages" closable="true">
+			<p:autoUpdate />
+		</p:messages>
+		<h:form>
+			<div class="card" style="margin: 1em">
+				<p:dataTable var="setup" value="#{setupBean.setups}">
+
+					<p:column headerText="image">
+						<img src = "#{request.contextPath}#{setup.imagePath}" 
+							 style = "width: 120px"
+						/>
+					</p:column>
+
+					<p:column headerText="Id">
+						<h:outputText value="#{setup.id}" />
+					</p:column>
+
+					<p:column headerText="Name">
+						<h:outputText value="#{setup.name}" />
+					</p:column>
+
+					<p:column headerText="Description">
+						<h:outputText value="#{setup.description}" />
+					</p:column>
+
+					<p:column headerText="Price">
+						<h:outputText value="#{setup.price}" />
+					</p:column>
+				</p:dataTable>
+			</div>
+		</h:form>
+	</ui:define>
+</ui:composition>
 
 
 
